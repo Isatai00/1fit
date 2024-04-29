@@ -1,9 +1,7 @@
-from __future__ import annotations
 from datetime import datetime, timedelta
-
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from airflow.models import Variable, Connection
+# from airflow.models import Variable, Connection
 
 default_args = {
     'owner': 'Isatai'
