@@ -14,11 +14,6 @@ from dotenv import load_dotenv
 import os
 from datetime import datetime
 
-# print("Got args: ", sys.argv)
-
-# a = int(sys.argv[1])
-# b = int(sys.argv[2])
-
 a = sys.argv[1]
 b = sys.argv[2]
 
@@ -39,6 +34,5 @@ connection = psycopg2.connect(
 
 b_date = datetime.strptime(b, '%Y-%m-%d').date()
 df = pd.read_sql_query("SELECT * FROM exchange_1fit", connection)
-# datetime.strptime(b, '%Y-%d-%m')
 value = df[(df['currency'] == a.upper()) & (df['date'] == b_date)]['rate'].iloc[0]
 print(value)
