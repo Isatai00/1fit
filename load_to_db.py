@@ -8,9 +8,10 @@ from dotenv import load_dotenv
 
 date_now = date.today()
 
+api_key = os.getenv("EXCHANGE_API_KEY")
 base_url = "https://v6.exchangerate-api.com/v6/b16f5b6c6877b44c1b9e98ee/latest/USD"
 params = {
-    "access_key": 'b16f5b6c6877b44c1b9e98ee'
+    "access_key": f'{api_key}'
 }
 response = requests.get(url=base_url, params=params)
 

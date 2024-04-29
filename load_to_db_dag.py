@@ -17,9 +17,11 @@ def load_to_db():
 
     date_now = date.today()
 
+    # лучше закидывать в airlfow connection
+    api_key = os.getenv("EXCHANGE_API_KEY")
     base_url = "https://v6.exchangerate-api.com/v6/b16f5b6c6877b44c1b9e98ee/latest/USD"
     params = {
-        "access_key": 'b16f5b6c6877b44c1b9e98ee'
+        "access_key": f'{api_key}'
     }
     response = requests.get(url=base_url, params=params)
     data = json.loads(response.text)
